@@ -29,10 +29,9 @@ descending order. First found wins.
 import json
 import logging
 import sys
-
 from configparser import ConfigParser, DuplicateSectionError
-from os.path import expanduser, expandvars, exists
 from os import getcwd, path
+from os.path import exists, expanduser, expandvars
 
 LOG = logging.getLogger(__name__)
 LOGGING_FORMAT = '%(asctime)s [%(levelname)s] %(name)s:%(funcName)s:%(lineno)d - %(message)s'
@@ -154,6 +153,7 @@ DEFAULT_EC2_SECURITYGROUPS = set(validate_key_values(config, 'base', 'default_ec
                                  default='').split(','))
 DEFAULT_ELB_SECURITYGROUPS = set(validate_key_values(config, 'base', 'default_elb_securitygroups',
                                  default='').split(','))
+DEFAULT_SECURITYGROUP_RULES = json.loads(validate_key_values(config, 'default_securitygroup_rules', 'rules', default="[]"))
 GITLAB_TOKEN = validate_key_values(config, 'credentials', 'gitlab_token')
 SLACK_TOKEN = validate_key_values(config, 'credentials', 'slack_token')
 DEFAULT_TASK_TIMEOUT = validate_key_values(config, 'task_timeouts', 'default', default=120)
