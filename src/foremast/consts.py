@@ -154,7 +154,7 @@ DEFAULT_EC2_SECURITYGROUPS = set(validate_key_values(config, 'base', 'default_ec
 DEFAULT_ELB_SECURITYGROUPS = set(validate_key_values(config, 'base', 'default_elb_securitygroups',
                                  default='').split(','))
 DEFAULT_SECURITYGROUP_RULES = json.loads(validate_key_values(config, 'base', 'default_securitygroup_rules',
-                                 default="{}"))
+                                  default="{}"))
 GITLAB_TOKEN = validate_key_values(config, 'credentials', 'gitlab_token')
 SLACK_TOKEN = validate_key_values(config, 'credentials', 'slack_token')
 DEFAULT_TASK_TIMEOUT = validate_key_values(config, 'task_timeouts', 'default', default=120)
