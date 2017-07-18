@@ -115,6 +115,11 @@ Comma seperated list of ELB security groups to include for all deployments
     | *Required*: No
     | *Example*: ``test_sg,example_elb_sg``
 
+''default_securitygroup_rules''
+*******************************
+    | *Required*: No
+    | *Example*: ``{ "bastion" : [ { "start_port": "22", "end_port": "22", "protocol": "tcp" } ] }``
+
 ``gate_client_cert``
 ********************
 
@@ -224,7 +229,7 @@ An string of the format of the application's jenkins job name
 
 Section handling customization of task timeouts when communicating with Spinnaker.
 
-Timeouts can vary per environment and per task. 
+Timeouts can vary per environment and per task.
 
 ``default``
 ***********
