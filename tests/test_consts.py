@@ -16,7 +16,8 @@
 
 from configparser import ConfigParser
 
-from foremast.consts import ALLOWED_TYPES, extract_formats
+from foremast.consts import (ALLOWED_TYPES, DEFAULT_SECURITYGROUP_RULES,
+                             extract_formats)
 
 
 def test_consts_extract_formats():
@@ -38,3 +39,8 @@ def test_consts_pipeline_types():
     """Default types should be set."""
     assert 'ec2' in ALLOWED_TYPES
     assert 'lambda' in ALLOWED_TYPES
+
+def test_consts_default_securitygroup_rules():
+    """Test this const is a dict"""
+    assert isinstance(DEFAULT_SECURITYGROUP_RULES, dict)
+    assert DEFAULT_SECURITYGROUP_RULES == {}
